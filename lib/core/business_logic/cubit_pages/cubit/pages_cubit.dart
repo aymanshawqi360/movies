@@ -28,19 +28,21 @@ class PagesCubit extends Cubit<PagesState> {
       favorit.removeWhere((test) => test.id == moviesApi.id);
       emit(FavoriteLoading(moviesFavoriteLoading: favorit));
     }
-
-    // emit(Decrmaint(d: nulll.toString()));
   }
 
-  void getRemoveMoviesFavorite(MoviesApi moviesApi) {
-    // final remove=favorit.any((test)=>test)
-    favorit.remove(moviesApi);
-    // ff = true;
-    emit(FavoriteLoaded(
-      moviesFavoriteLoaded: favorit,
-    ));
-    // return favorit;
+  int numberFavorite() {
+    return favorit.length;
   }
+
+  // void getRemoveMoviesFavorite(MoviesApi moviesApi) {
+  //   // final remove=favorit.any((test)=>test)
+  //   favorit.remove(moviesApi);
+  //   // ff = true;
+  //   emit(FavoriteLoaded(
+  //     moviesFavoriteLoaded: favorit,
+  //   ));
+  //   // return favorit;
+  // }
 
   // Future<void> saveFavoriteMovies(List<MoviesApi> movis) async {
   //   final prefs = await SharedPreferences.getInstance();

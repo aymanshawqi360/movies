@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:movies_app/core/business_logic/cubit/movies_cubit.dart';
+import 'package:movies_app/core/business_logic/cubit_pages/cubit/pages_cubit.dart';
 import 'package:movies_app/core/constants/list_pages.dart';
 import 'package:movies_app/core/constants/my_colors.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -182,12 +184,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           )),
                       BottomNavigationBarItem(
                           label: "Favorite",
-                          icon: Image.asset(
-                            "assets/images/favarates.png",
-                            color: number == 2
-                                ? MyColors.myAmber
-                                : MyColors.myGrey,
-                            height: 16.h,
+                          icon: BlocBuilder<PagesCubit, PagesState>(
+                            builder: (context, state) {
+                              return badges.Badge(
+                                badgeContent: Text(context
+                                    .read<PagesCubit>()
+                                    .numberFavorite()
+                                    .toString()),
+                                badgeStyle: badges.BadgeStyle(
+                                    badgeColor: MyColors.myAmber),
+                                child: Image.asset(
+                                  "assets/images/favarates.png",
+                                  height: 16.h,
+                                  color: number == 3
+                                      ? MyColors.myAmber
+                                      : MyColors.myGrey,
+                                ),
+                              );
+                            },
                           )),
                       BottomNavigationBarItem(
                           label: "Profile",
@@ -208,3 +222,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+// Image.asset(
+//                             "assets/images/favarates.png",
+//                             color: number == 2
+//                                 ? MyColors.myAmber
+//                                 : MyColors.myGrey,
+//                             height: 16.h,
+//                           ),
