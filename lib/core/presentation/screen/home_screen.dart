@@ -106,12 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
   //   );
   // }
 
-  var icons = [
-    Icons.home,
-    Icons.search,
-    Icons.favorite_border,
-    Icons.person_outline_rounded,
-  ];
+  // var icons = [
+  //   Icons.home,
+  //   Icons.search,
+  //   Icons.favorite_border,
+  //   Icons.person_outline_rounded,
+  // ];
 
   int number = 0;
   @override

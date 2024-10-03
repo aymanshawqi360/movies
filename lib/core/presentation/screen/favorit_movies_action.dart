@@ -7,7 +7,7 @@ import 'package:movies_app/core/business_logic/cubit_pages/cubit/pages_cubit.dar
 import 'package:movies_app/core/constants/my_colors.dart';
 import 'package:movies_app/core/data/model/movies_api.dart';
 
-import 'package:movies_app/core/presentation/screen/widget_favorite.dart';
+import 'package:movies_app/core/presentation/page_display_movies/widget/widget_favorite.dart';
 
 class FavoritMoviesAction extends StatefulWidget {
   // final MoviesApi moviesApi;
